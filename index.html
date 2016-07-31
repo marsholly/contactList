@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact List</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="main.js"></script>
+
+</head>
+<body>
+<!---  Add Contact   -->
+  <h1>Contact List</h1>
+  <div class="container addcontact">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo">Add Contact</button>
+  </div>
+
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form id ="sendinfo"> 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New Contact</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Name:</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Phone Number:</label>
+            <input type="text" class="form-control" id="phno">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Address:</label>
+            <input type="text" class="form-control" id="address">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">E-Mail:</label>
+            <input type="text" class="form-control" id="mail">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Colleague</label>
+            <input type="text" class="form-control" id="colleague">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Family</label>
+            <input type="text" class="form-control" id="family">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Friends</label>
+            <input type="text" class="form-control" id="friend">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Upload Your Photo</label>
+            <input id="photo" type="file" class="file-loading" webkitdirectory>
+          </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<div>
+<hr>  
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul id="list"></ul>
+      </div>
+    </div>
+</div>
+
+<!--- Display contact  -->
+<li id = "template">  
+<div class="col-sm-6 col-md-4" >
+  <div class="thumbnail">
+      <!-- <img data-src="holder.js/300x200" alt="..."> -->
+      <img class="photo">
+        <div class="caption">
+            <h3 class="getName"></h3>
+            <p id ='p'>Phone Number: <span class="phno"></span></p>
+            <p id ='a'>Address: <span class="address"></span></p>
+            <p id ='e'>E-Mail: <span class="email"></span></p>
+            <p id ='c'>Colleague: <span class="colleague"></span></p>
+            <p id ='fa'>Family: <span class="family"></span></p>
+            <p id ='fr'>Friends: <span class="friend"></span></p>
+            <p><button type="button" class="btn btn-success editbtn" data-toggle="modal" data-target="#editModal" >Edit</button>
+            <button type="button" class="btn btn-danger del">Delete</button></p>
+          </div>
+      </div>
+  </div>
+</li>
+
+<!-- Edit Contact -->
+<div class="modal fade" id="editModal" data-index="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+ <form id="editForm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Edit Contact</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Name:</label>
+            <input type="text" class="form-control" id = "editName">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Phone Number:</label>
+            <input type="text" class="form-control" id = "editPhno">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Address:</label>
+            <input type="text" class="form-control" id ="editAddress">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >E-Mail:</label>
+            <input type="text" class="form-control" id="editMail">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Colleague</label>
+            <input type="text" class="form-control" id="editColleague">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Family</label>
+            <input type="text" class="form-control" id="editFamily">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" >Friends</label>
+            <input type="text" class="form-control" id="editFriends">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Upload Your Photo</label>
+            <input id="photo" type="file" class="file-loading" webkitdirectory>
+          </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary confirm">Confirm</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

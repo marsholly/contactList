@@ -1,0 +1,28 @@
+h1{
+  text-align: center;
+  color: blue;
+}
+
+h3{
+  text-align: center;
+}
+
+.addcontact{
+  text-align: center;
+}
+
+p{
+  text-align: center;;
+}
+
+#template{
+  display: none;
+}
+
+#del{
+  margin-left: 20px;
+}
+
+li{
+  list-style-type:none
+}
